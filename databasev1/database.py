@@ -35,6 +35,7 @@ def add_stats(data:dict, gameID:str, week:str):
 
         session.add(new)
         session.commit()
+        return new
 
 
 def add_player(data:dict):
@@ -54,6 +55,7 @@ def add_player(data:dict):
         )
         session.add(new)
         session.commit()
+        return new
 
 def add_game(data:dict):
     with SessionLocal() as session:
@@ -70,6 +72,7 @@ def add_game(data:dict):
         )
         session.add(new)
         session.commit()
+        return new
 
 def add_team(data:dict):
     with SessionLocal() as session:
@@ -87,6 +90,7 @@ def add_team(data:dict):
         )
         session.add(new)
         session.commit()
+        return new
  
 
 
