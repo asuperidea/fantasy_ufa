@@ -1,9 +1,6 @@
-from models import Stat
-from datetime import datetime, timedelta, date
-from database import get_stats
-from constructor import constructor
+from models import Stat, SessionLocal
 
-def calculatePoints(stats:Stat):
+def calculatePoints(stats:Stat, session):
     totalPoints = 0.0
     totalPoints += stats.goals*3.0
     totalPoints += stats.assists*3.0
@@ -12,4 +9,4 @@ def calculatePoints(stats:Stat):
     totalPoints += stats.blocks*3.0
     totalPoints += stats.throwaways*-1.0
 
-    return totalPoints
+    return round(totalPoints, 2)
