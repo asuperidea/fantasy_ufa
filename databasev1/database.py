@@ -33,6 +33,11 @@ def add_stats(data:dict, gameID:str, week:str, session):
     session.add(new)
     session.commit()
 
+def add_fantasy_points(statID:int, fantasyPoints:float, session):
+    stat = session.get(Stat, statID)
+    if stat:
+        stat.fantasyPoints = fantasyPoints
+        session.commit()
 
 def add_player(data:dict, session):
     team = session.get(Team, data["teams"][0]["teamID"])

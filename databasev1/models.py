@@ -65,6 +65,8 @@ class Stat(Base):
     gameId: Mapped[str] = mapped_column(ForeignKey("games.id"))
     week: Mapped[str] = mapped_column(nullable=False)
 
+    fantasyPoints: Mapped[float] = mapped_column(nullable=True)
+
     goals: Mapped[int] = mapped_column(default=0)
     assists: Mapped[int] = mapped_column(default=0)
     completions: Mapped[int] = mapped_column(default=0)
