@@ -1,29 +1,23 @@
-from database import add_stats, add_player, add_game, get_stats, add_team
-from api import getGames, getStats, getTeams, getPlayers
-from models import init_db
-from datetime import datetime, timedelta, date
+from database import add_player, add_game, add_team
+from api import getGames, getTeams, getPlayers
 
-init_db()
-
-def createTeams(season:int):
+def createTeams(season:int, session):
     teams = getTeams(season)
     for team in teams:
-        add_team(team)
+        add_team(team, session)
 
-def createPlayers(season:int):
+def createPlayers(season:int, session):
     players = getPlayers(season)
     for player in players:
-        add_player(player)
+        add_player(player, session)
 
-def createGames(season:int):
+def createGames(season:int, session):
     games = getGames(season)
     for game in games:
-        add_game(game)
+        add_game(game, session)
 
 
-def constructor(season:int):
-    createTeams(season)
-    createPlayers(season)
-    createGames(season)
-
-constructor(2025)
+def constructor(season:int, session):
+    createTeams(season, session)
+    createPlayers(season, session)
+    createGames(season, session)
